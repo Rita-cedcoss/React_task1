@@ -5,15 +5,16 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const root1 = ReactDOM.createRoot(document.getElementById('root1'));
 // const root1 = ReactDOM.createRoot(document.getElementById('root'));
-// const clock=()=>{
-//   let time=new Date().toLocaleTimeString();
-//   root.render(
-//     <div id="clk">
-//       <p>{time}</p></div>
-//   );
-// }
-// setInterval(clock,1000);
+const clock=()=>{
+  let time=new Date().toLocaleTimeString();
+ root1.render(
+    <div id="clk">
+      <p>{time}</p></div>
+  );
+}
+setInterval(clock,1000);
   var hr=0;
   var min=0;
   var sec=0;
