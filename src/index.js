@@ -28,6 +28,15 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
     flag=false;
     clearInterval(time);
   }
+  function reset()
+  {
+    flag=false;
+     hr=0;
+     min=0;
+     sec=0;
+     ms=0;
+
+  }
   const stopwtach=()=>
   {
     if(flag===true){
@@ -65,7 +74,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
    root.render(
     <div id="time">
   <p>{hr}:{min}:{sec}:{ms}</p>
-  <button onClick={start}>Start</button><button onClick={stoptime}>Stop</button>
+  <button onClick={start}>Start</button><button onClick={stoptime}>Stop</button><button onClick={reset}>reset</button>
   </div>
   ) 
 
@@ -78,7 +87,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <div id="time">
   <p>{hr}:{min}:{sec}:{ms}</p>
-  <button onClick={start}>Start</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onClick={stoptime}>Stop</button>
+  <button onClick={start}>Start</button><button onClick={stoptime}>Stop</button><button onClick={reset}>reset</button>
   </div>
   ) 
 reportWebVitals();
