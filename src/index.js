@@ -1,21 +1,84 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const clock=()=>{
-  let time=new Date().toLocaleTimeString();
-  root.render(
-    <div id="clk">
-      <p>{time}</p></div>
-  );
-}
-setInterval(clock,1000);
+// const root1 = ReactDOM.createRoot(document.getElementById('root'));
+// const clock=()=>{
+//   let time=new Date().toLocaleTimeString();
+//   root.render(
+//     <div id="clk">
+//       <p>{time}</p></div>
+//   );
+// }
+// setInterval(clock,1000);
+  var hr=0;
+  var min=0;
+  var sec=0;
+  var ms=0;
+  var flag=false;
+  function start(){
+    // alert();
+    flag=true;
+    time= setInterval(stopwtach,10);
+  }
+  function stoptime(){
+    flag=false;
+    clearInterval(time);
+  }
+  const stopwtach=()=>
+  {
+    if(flag===true){
+     if(ms<99)
+     {
+        ms++;
+     }
+     else
+     {
+         ms=0;
+        if(sec<59)
+        {
+            sec++;
+        }
+        else
+        {
+          sec=0;
+          if(min<59)
+          {
+            min++;
+          }
+          else
+          {
+           min=0;
+           if(hr<59)
+           {
+            hr++;
+           }
 
+          }
+        }
+     }
+    }
+//    console.log(hr,min,sec,ms);
+   root.render(
+    <div id="time">
+  <p>{hr}:{min}:{sec}:{ms}</p>
+  <button onClick={start}>Start</button><button onClick={stoptime}>Stop</button>
+  </div>
+  ) 
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+  }
+  var time= setInterval(stopwtach,10);
+
+  
+ 
+
+root.render(
+    <div id="time">
+  <p>{hr}:{min}:{sec}:{ms}</p>
+  <button onClick={start}>Start</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onClick={stoptime}>Stop</button>
+  </div>
+  ) 
 reportWebVitals();
